@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<<head>
+<title>Welcome to our site</title>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+	
+
+<td th:text="${tarjeta.numero}"></td>
+				<td th:text="${tarjeta.fechaDecaducidad}"></td>
+				<td th:text="${tarjeta.banco}"></td>
+				<td th:text="${tarjeta.debitoOcredito}"></td>
+				<td th:text="${tarjeta.CVV}"></td>
+				<td th:text="${tarjeta.masterOvisa}"></td>
+			
+
+
+
+<div class="w3-card-4 w3-display-middle" style="width: 40%"
+	th:each="tarjeta:${tarjetafromController}">
+	<header class="w3-container w3-light-grey">
+		<h3 th:text="${tarjeta.name} + ' ' + ${tarjeta.surname}"></h3>
+
+	</header>
+	<div class="w3-container">
+		<p>1 new friend request</p>
+		<p></p>
+		<hr>
+		<img src="/img/img_avatar.jpg" alt="Avatar"
+			class="w3-left w3-circle w3-margin-right" style="width: 60px">
+		<p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new
+			job and new opportunities.</p>
+		<br>
+		<p th:text="${tarjeta.fechaDecaducidad}"></p>
+		<p th:text="${tarjeta.banco}"></p>
+		<p th:text="${tarjeta.debitoOcredito}"></p>
+		<p th:text="${tarjeta.CVV}"></p>
+		<p th:text="${tarjeta.masterOvisa}"></p>
+		<hr>
+		<div class="w3-container w3-center">
+			<a th:href="@{deleteTarjeta(id=${tarjeta.id})}"
+				class="w3-button w3-red w3-center">Delete</a> <a
+				th:href="@{updateTarjeta(id=${tarjeta.id})}"
+				class="w3-button w3-blue">Update</a>
+			
+			<hr>
+		</div>
+	</div>
+	<button class="w3-button w3-block w3-dark-grey">+ Connect</button>
+</div>
+
+</div>
+
+</body>
+</html>
