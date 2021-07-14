@@ -1,10 +1,15 @@
 package cliente;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,13 +26,18 @@ public class Cliente {
 	public double monthSalary;
 	public String password;
 	
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Tarjeta> tarjetas = new ArrayList<>();
+	
+	
 
 	public Cliente() {
 		super();}
 	
-	public Cliente(int id, String name, String surname, int age, String email, double monthSalary,String password) {
+	public Cliente( String name, String surname, int age, String email, double monthSalary,String password) {
 		super();
-		this.id = id;
+	
 		this.name = name;
 		this.surname = surname;
 		this.age = age;
@@ -37,6 +47,18 @@ public class Cliente {
 	}
 	
 	
+	
+	
+	public List<Tarjeta> getTarjetas() {
+		return tarjetas;
+	}
+
+	public void addTarjeta(Tarjeta tarjeta) {
+		
+		this.tarjetas.add(tarjeta);
+		tarjeta.setCliente(this);
+	}
+
 	public String getPassword() {
 		return password;
 	}

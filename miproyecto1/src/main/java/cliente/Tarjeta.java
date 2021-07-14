@@ -1,11 +1,12 @@
 package cliente;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +16,6 @@ public class Tarjeta {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
 	int id;
 	int numero;
     Date fechaDecaducidad;
@@ -23,6 +23,13 @@ public class Tarjeta {
 	public String debitoOcredito;
 	int CVV;
 	public String masterOvisa;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "Cliente_FID")
+	private Cliente cliente;
+	
+	
 	
 	public Tarjeta() {}
 	
@@ -36,6 +43,19 @@ public class Tarjeta {
 		CVV = cVV;
 		this.masterOvisa = masterOvisa;
 	}
+	
+	
+	
+	
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public int getNumero() {
 		return numero;
 	}

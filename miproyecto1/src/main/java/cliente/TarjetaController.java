@@ -129,26 +129,29 @@ public String removeTarjeta(int id, Model model) {
 		else
 			return "notfound.html";
 	}
+	
+	
+	
 
-	/*@PostMapping("/replaceTarjeta/{idFromView}")
+	@PostMapping("/replaceTarjeta/{idFromView}")
 	public String replaceTarjeta(@PathVariable("idFromView") int id, Tarjeta tarjeta) {
 
 		Optional<Tarjeta> tarjetaFound = findOneTarjetaById(id);
 
 		if (tarjetaFound.isPresent()) {
 
-			if (tarjeta.getName() != null)
-				tarjetaFound.get().setName(tarjeta.getName());
-			if (tarjeta.getSurname() != null)
-				tarjetaFound.get().setSurname(tarjeta.getSurname());
-			if (tarjeta.getPassword() != null)
-				tarjetaFound.get().setPassword(tarjeta.getPassword());
-			if (tarjeta.getEmail() != null)
-				tarjetaFound.get().setEmail(tarjeta.getEmail());
-			if (tarjeta.getAge() != 0)
-				tarjetaFound.get().setAge(tarjeta.getAge());
-			if (tarjeta.getMonthSalary() != 0.0)
-				tarjetaFound.get().setMonthSalary(tarjeta.getMonthSalary());
+			if (tarjeta.getNumero() != 0)
+				tarjetaFound.get().setNumero(tarjeta.getNumero());
+			//if (tarjeta.FechaDeCaducidad() != 00-00-00)
+			//	tarjetaFound.get().setFechaDecaducidad(tarjeta.getFechaDecaducidad());
+			if (tarjeta.getBanco() != null)
+				tarjetaFound.get().setBanco(tarjeta.getBanco());
+			if (tarjeta.getDebitoOcredito() != null)
+				tarjetaFound.get().setDebitoOcredito(tarjeta.getDebitoOcredito());
+			if (tarjeta.getCVV() != 0)
+				tarjetaFound.get().setCVV(tarjeta.getCVV());
+			if (tarjeta.getMasterOvisa() != null)
+				tarjetaFound.get().setMasterOvisa(tarjeta.getMasterOvisa());
 
 			tarjetaRepository.save(tarjetaFound.get());
 			return "redirect:/tarjeta/allTarjeta";
@@ -156,7 +159,7 @@ public String removeTarjeta(int id, Model model) {
 		} else
 			return "notfound.html";
 
-	}*/
+	}
 		@RequestMapping("/detailTarjeta")
 		public String detailTarjeta(int id, Model model) {
 
