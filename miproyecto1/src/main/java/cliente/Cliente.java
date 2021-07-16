@@ -3,7 +3,6 @@ package cliente;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,9 +44,7 @@ public class Cliente {
 		this.monthSalary = monthSalary;
 		this.password = password;
 	}
-	
-	
-	
+
 	
 	public List<Tarjeta> getTarjetas() {
 		return tarjetas;

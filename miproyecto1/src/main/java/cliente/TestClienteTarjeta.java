@@ -33,16 +33,17 @@ public class TestClienteTarjeta implements CommandLineRunner{
 			 
 				
 			  
-			  tarjetaRepository.save(nomina1); tarjetaRepository.save(nomina2);
+			  tarjetaRepository.save(nomina1);
+			  tarjetaRepository.save(nomina2);
 			  
 			  
 			  
 			  
-			  //joan.addTarjeta(nomina1);
-			  //joan.addTarjeta(nomina2);
+			  joan.addTarjeta(nomina1);
+			  joan.addTarjeta(nomina2);
 			  
-			  //clienteRepository.save(joan);
-			  //clienteRepository.save(isa);
+			 clienteRepository.save(joan);
+			 clienteRepository.save(isa);
 			  
 			 
 			  
