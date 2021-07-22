@@ -68,28 +68,36 @@ public class ClienteRestController {
 	// ----------------------------------------------------------------------------
 	@PutMapping("/updateCliente/{id}")
 	public void upadatecliente(@RequestBody Cliente cliente, @PathVariable int id) {
-
+		
+		System.out.println(id);
+		
 		Optional<Cliente> clienteFound = clienteRepository.findById(id);
+		
+		System.out.println(clienteFound);
 
 		if (clienteFound.isPresent()) {
 
 			if (!cliente.getName().equals(clienteFound.get().getName()))
 				clienteFound.get().setName(cliente.getName());
 
-			if (!cliente.getSurname().equals(clienteFound.get().getSurname()))
-				clienteFound.get().setSurname(cliente.getSurname());
-
-			if (cliente.getAge() != clienteFound.get().getAge())
-				clienteFound.get().setAge(cliente.getAge());
-
-			if (!cliente.getEmail().equals(clienteFound.get().getEmail()))
-				clienteFound.get().setEmail(cliente.getEmail());
-
-			if (cliente.getMonthSalary() != clienteFound.get().getMonthSalary())
-				clienteFound.get().setMonthSalary(cliente.getMonthSalary());
-
-			if (!cliente.getPassword().equals(clienteFound.get().getPassword()))
-				clienteFound.get().setPassword(cliente.getPassword());
+			
+			  if (!cliente.getSurname().equals(clienteFound.get().getSurname()))
+			  clienteFound.get().setSurname(cliente.getSurname());
+			  
+			  if (cliente.getAge() != clienteFound.get().getAge())
+			  clienteFound.get().setAge(cliente.getAge());
+			  
+			/*
+			 * if (!cliente.getEmail().equals(clienteFound.get().getEmail()))
+			 * clienteFound.get().setEmail(cliente.getEmail());
+			 * 
+			 * if (cliente.getMonthSalary() != clienteFound.get().getMonthSalary())
+			 * clienteFound.get().setMonthSalary(cliente.getMonthSalary());
+			 * 
+			 * if (!cliente.getPassword().equals(clienteFound.get().getPassword()))
+			 * clienteFound.get().setPassword(cliente.getPassword());
+			 */
+			 
 
 			clienteRepository.save(clienteFound.get());
 		}
