@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+	<div class="w3-panel w3-padding-32">
+		<h1>Spring Boot with Tarjeta Iterable List from BD H2</h1>
+		<h3>Table of tarjeta</h3>
+
+		<table class="w3-table-all">
+
+			<tr class="w3-black w3-hover-teal">
+
+				<td > id</td>
+				<td > name</td>
+				<td > surname </td>
+				<td > age</td>
+				<td> email</td>
+				<td > salary</td>
+				<td> password</td>
+				<td> delete</td>
+			</tr>
+
+			<tr th:each="tarjeta:${tarjetaListfromControllerAndDB}">
+
+   
+
+
+
+
+
+				<td th:text="${tarjeta.id}"></td>
+				<td th:text="${tarjeta.numero}"></td>
+				<td th:text="${tarjeta.fechaDecaducidad}"></td>
+				<td th:text="${tarjeta.banco}"></td>
+				<td th:text="${tarjeta.debitoOcredito}"></td>
+				<td th:text="${tarjeta.CVV}"></td>
+				<td th:text="${tarjeta.masterOvisa}"></td>
+
+				<td > <a th:href="@{deleteTarjeta(id=${tarjeta.id})}"
+					class="w3-button w3-red">Delete</a>
+
+					<a th:href="@{detailTarjeta(id=${tarjeta.id})}"
+					class="w3-button w3-teal">Detail</a> 
+					<a th:href="@{updateTarjeta(id=${tarjeta.id})}"
+					class="w3-button w3-blue">Update</a></td>
+					
+
+			</tr>
+		</table>
+
+
+	</div>
+</html>
